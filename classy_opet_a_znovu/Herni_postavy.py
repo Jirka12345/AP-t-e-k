@@ -32,3 +32,26 @@ class Mag(Postava):
         if self.mana >= 10:
             self.mana -= 10
             return f"{(random.randint(25,40))}"
+        else:
+            return "Nemam manu, utočim holí - udělené poškození 5 bodů"
+        
+class Zloděj(Postava):
+    def __init__(self, jmeno, zdravi, uspesnost_loupeze:bool = True):
+        super().__init__(jmeno, zdravi)
+        self.uspesnost_loupeze = uspesnost_loupeze
+    
+    def utok(self):
+        return "Zloděj útočí zezadu a bodá za 20 bodů poškození."
+
+Velkej_Tony = Rytir("Velkej Tony", 50, 100)
+
+Ďurda = Zloděj("Ďurda", 100,)
+
+Čadomír_Čaromír = Mag("Čadomír Čaromír", 65, 100)
+
+druzina = [Velkej_Tony,Ďurda,Čadomír_Čaromír]
+
+for clovek in druzina:
+   print(clovek.predstav_se())
+   print(clovek.utok())
+   print("-" * 20)
